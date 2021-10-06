@@ -1,0 +1,130 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "A scatterplot showing horsepower and miles per gallons for various cars.",
+    "data": {"url": "https://raw.githubusercontent.com/AshinOliver/Week10_homework/main/week10%20homework.csv"},
+    "params": [
+   {
+   "name": "State_selection",
+   "bind": {
+   "input": "select",
+   "options": [
+   null,"Albury","BadgerysCreek","Cobar","CoffsHarbour","Moree","Newcastle","NorahHead","NorfolkIsland","Penrith","Richmond","Sydney","SydneyAirport","WaggaWagga",
+  "Williamtown",
+  "Wollongong",
+  "Canberra",
+  "Tuggeranong",
+  "MountGinini",
+  "Ballarat",
+  "Bendigo",
+  "Sale",
+  "MelbourneAirport",
+  "Melbourne",
+  "Mildura",
+  "Nhil",
+  "Portland",
+  "Watsonia",
+  "Dartmoor",
+  "Brisbane",
+  "Cairns",
+  "GoldCoast",
+  "Townsville",
+  "Adelaide",
+  "MountGambier",
+  "Nuriootpa",
+  "Woomera",
+  "Albany",
+  "Witchcliffe",
+  "PearceRAAF",
+  "PerthAirport",
+  "Perth",
+  "SalmonGums",
+  "Walpole",
+  "Hobart",
+  "Launceston",
+  "AliceSprings",
+  "Darwin",
+  "Katherine",
+  "Uluru"
+   ],
+   "labels":[
+   "Show All",
+  "Albury","BadgerysCreek","Cobar","CoffsHarbour","Moree","Newcastle","NorahHead","NorfolkIsland","Penrith","Richmond","Sydney","SydneyAirport","WaggaWagga",
+  "Williamtown",
+  "Wollongong",
+  "Canberra",
+  "Tuggeranong",
+  "MountGinini",
+  "Ballarat",
+  "Bendigo",
+  "Sale",
+  "MelbourneAirport",
+  "Melbourne",
+  "Mildura",
+  "Nhil",
+  "Portland",
+  "Watsonia",
+  "Dartmoor",
+  "Brisbane",
+  "Cairns",
+  "GoldCoast",
+  "Townsville",
+  "Adelaide",
+  "MountGambier",
+  "Nuriootpa",
+  "Woomera",
+  "Albany",
+  "Witchcliffe",
+  "PearceRAAF",
+  "PerthAirport",
+  "Perth",
+  "SalmonGums",
+  "Walpole",
+  "Hobart",
+  "Launceston",
+  "AliceSprings",
+  "Darwin",
+  "Katherine",
+  "Uluru"
+   ],
+   "name": "State_selection: "
+   }
+   }
+   ],
+       "transform": [
+        {"filter": "State_selection == null || datum.Location == State_selection"}],
+    "layer": [
+    {"mark": "point",
+    "encoding": {
+      "x": {"field": "WindSpeed", "type": "quantitative"},
+        "tooltip": [
+              {"field": "WindSpeed", "type": "quantitative"},
+              {"field": "Rainfall", "type": "quantitative"},
+              {"field": "Location", "type": "nominal"}
+            ],
+      "y": {"field": "Rainfall", "type": "quantitative"},
+      "color": {"field": "Location", "type": "nominal","legend": {"columns": 2}}
+    }},
+   {"mark": {
+   "type": "text",
+   "align": "right",
+   "baseline": "middle",
+   "dx": -12,
+   "fontSize": 5,
+   "fontStyle": "italic"
+   },
+   "encoding": {
+   "text": {"field": "Location", "type": "nominal"},
+   "color": {"value": "black"},
+   "opacity": {
+   "condition": {
+   "test": "datum['Location'] == 'Albury' || datum['Location'] =='BadgerysCreek'|| datum['Location'] =='Cobar'|| datum['Location'] =='CoffsHarbour'|| datum['Location'] =='Moree'|| datum['Location'] =='Newcastle'|| datum['Location'] =='NorahHead'|| datum['Location'] =='NorfolkIsland'|| datum['Location'] =='Penrith'|| datum['Location'] =='Richmond'|| datum['Location'] =='Sydney'",
+   "value": 1
+   },
+   "value": 0
+   },
+   "tooltip": [
+   {"field": "Location", "type": "nominal"},
+   {"field": "Rainfall", "type": "quantitative", "format": ","},
+   {"field": "WindSpeed", "type": "quantitative", "format": ","}]}
+    
+  }]}
